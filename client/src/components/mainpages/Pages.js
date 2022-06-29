@@ -12,6 +12,7 @@ import Categories from './categories/Categories'
 import CreateProduct from './createProduct/CreateProduct'
 
 import {GlobalState} from '../../GlobalState'
+import home from './blogs/home/home'
 
 
 function Pages() {
@@ -27,6 +28,8 @@ function Pages() {
 
             <Route path="/login" exact component={isLogged ? NotFound : Login} />
             <Route path="/register" exact component={isLogged ? NotFound : Register} />
+
+            <Route path="/home" exact component={isLogged ? home : home} />
 
             <Route path="/category" exact component={isAdmin ? Categories : NotFound} />
             <Route path="/create_product" exact component={isAdmin ? CreateProduct : NotFound} />

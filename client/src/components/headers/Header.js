@@ -6,6 +6,7 @@ import Cart from './icon/cart.svg'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
+
 function Header() {
     const state = useContext(GlobalState)
     const [isLogged] = state.userAPI.isLogged
@@ -52,13 +53,13 @@ function Header() {
 
             <div className="logo">
                 <h1>
-                    <Link to="/">{isAdmin ? 'Admin' : 'CRAFTMONK'}</Link>
+                    <Link to="">{isAdmin ? 'Admin' : 'CRAFTMONK'}</Link>
                 </h1>
             </div>
 
             <ul style={styleMenu}>
                 <li><Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link></li>
-
+                <li><Link to="/home">{isAdmin ? 'Blogs' : 'Blogs'}</Link></li>
                 {isAdmin && adminRouter()}
 
                 {
