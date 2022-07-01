@@ -48,6 +48,8 @@ button{
 
 /* ------------ Cart ------------------- */
 @import url("./components/mainpages/cart/cart.css");
+/* ------------ Cart ------------------- */
+@import url("./components/mainpages/wishlist/wishlist.css");
 
 /* --------------- History ------------------- */
 @import url("./components/mainpages/history/history.css");

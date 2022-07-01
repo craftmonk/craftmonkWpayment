@@ -5,6 +5,7 @@ function UserAPI(token) {
     const [isLogged, setIsLogged] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
     const [cart, setCart] = useState([])
+    const [wishlist, setWishlist] = useState([])
     const [history, setHistory] = useState([])
 
     useEffect(() =>{
@@ -50,12 +51,32 @@ function UserAPI(token) {
             alert("This product has been added to cart.")
         }
     }
+    const addWishlist = async (product) => {
+        if(!isLogged) return alert("Please login to continue buying")
+
+        const check = wishlist.every(item =>{
+            return item._id !== product._id
+        })
+
+        if(check){
+            setWishlist([...wishlist, {...product,quantity:1}])
+
+            await axios.patch('/user/addWishlist', {wishlist: [...wishlist, {...product,quantity:1}]}, {
+                headers: {Authorization: token}
+            })
+
+        }else{
+            alert("This product has been added to wishlist.")
+        }
+    }
 
     return {
         isLogged: [isLogged, setIsLogged],
         isAdmin: [isAdmin, setIsAdmin],
         cart: [cart, setCart],
+        wishlist :[wishlist,setWishlist],
         addCart: addCart,
+        addWishlist:addWishlist,
         history: [history, setHistory]
     }
 }

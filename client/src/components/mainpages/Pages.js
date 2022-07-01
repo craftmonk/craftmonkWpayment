@@ -10,6 +10,7 @@ import Cart from './cart/Cart'
 import NotFound from './utils/not_found/NotFound'
 import Categories from './categories/Categories'
 import CreateProduct from './createProduct/CreateProduct'
+import Wishlist from './wishlist/Wishlist'
 
 import {GlobalState} from '../../GlobalState'
 import home from './blogs/home/home'
@@ -37,6 +38,8 @@ function Pages() {
 
             <Route path="/history" exact component={isLogged ? OrderHistory : NotFound} />
             <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFound} />
+
+            <Route path="/wishlist" exact component={isLogged ? Wishlist : NotFound} />
 
             <Route path="/cart" exact component={Cart} />
 

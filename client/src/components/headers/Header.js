@@ -12,6 +12,7 @@ function Header() {
     const [isLogged] = state.userAPI.isLogged
     const [isAdmin] = state.userAPI.isAdmin
     const [cart] = state.userAPI.cart
+    
     const [menu, setMenu] = useState(false)
 
     const logoutUser = async () =>{
@@ -60,6 +61,7 @@ function Header() {
             <ul style={styleMenu}>
                 <li><Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link></li>
                 <li><Link to="/home">{isAdmin ? 'Blogs' : 'Blogs'}</Link></li>
+                <li><Link to="/wishlist">{isAdmin ? 'Wishlist' : 'WishList'}</Link></li>
                 {isAdmin && adminRouter()}
 
                 {
@@ -80,6 +82,7 @@ function Header() {
                         <img src={Cart} alt="" width="30" />
                     </Link>
                 </div>
+                
             }
             
         </header>
